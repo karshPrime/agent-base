@@ -26,6 +26,7 @@
 * feature/release-tags: the template's version lives in VERSION, and CI tags each merge to main as v<VERSION> once every check passes, so copier renders releases rather than whatever is on main; CI runs on main are no longer cancelled by the next push; and agents open a pull request at the end of any single clear request, without asking.
 * chore/add-make: every cage has make.
 * chore/version-3-1-0: VERSION moves to 3.1.0, releasing the base image with make.
+* 3.2.0: changelog entries are labelled with the version they release, from VERSION, rather than the branch name; repositories without a VERSION file keep the branch name.
 
 ## removed
 

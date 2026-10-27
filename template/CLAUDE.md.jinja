@@ -95,19 +95,21 @@ as `docs: readme and changelog for <the branch's subject>`.
 
 `CHANGELOG.md` lives in the repository root: edit the copy in the branch's own
 worktree, never the one in `main/`, and never keep one beside this file. It gets
-exactly one bullet per branch, under the heading that fits. Create it if it is
-missing:
+exactly one bullet per branch, under the heading that fits, labelled with the
+version the branch releases: the one in the repository's `VERSION` file after this
+branch's bump. A repository with no `VERSION` file has no version to give, so its
+bullets keep the branch name instead. Create it if it is missing:
 
 ```markdown
 # Changelog
 
 ## added/modified:
 
-* feature/dark-mode: theme toggle that remembers your choice between sessions.
+* 1.4.0: theme toggle that remembers your choice between sessions.
 
 ## removed
 
-* chore/drop-jquery: jQuery, replaced with the equivalent plain DOM calls.
+* 1.3.0: jQuery, replaced with the equivalent plain DOM calls.
 ```
 
 Then sync the fork again, rebase onto the default branch and push the branch to

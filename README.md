@@ -10,6 +10,10 @@ checks after every push, answers review comments with fixup commits so you can
 see each change on its own, folds those into a clean history once review is over,
 and removes its branch and worktree once the pull request is merged.
 
+Each branch adds one line to the repository's `CHANGELOG.md`, labelled with the
+version it releases from `VERSION`, or with the branch name in a repository that
+has no `VERSION` file.
+
 ## Setup
 
 Once per machine, from this repository:
