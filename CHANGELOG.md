@@ -27,6 +27,7 @@
 * chore/add-make: every cage has make.
 * chore/version-3-1-0: VERSION moves to 3.1.0, releasing the base image with make.
 * 3.2.0: changelog entries are labelled with the version they release, from VERSION, rather than the branch name; repositories without a VERSION file keep the branch name.
+* 3.3.0: fixes asked for in review are squashed into the commit they belong to and force-pushed with a lease, rather than left as fixup commits until review is over.
 
 ## removed
 

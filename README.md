@@ -6,9 +6,9 @@ of your fork in `main/`, and a `CLAUDE.md` covering the git and GitHub workflow.
 Under that workflow, an agent finishes a single clear request by opening a pull
 request, without asking first; an open-ended one, such as a discussion or a plan,
 stops at a pushed branch. It then sees the pull request through: it watches the
-checks after every push, answers review comments with fixup commits so you can
-see each change on its own, folds those into a clean history once review is over,
-and removes its branch and worktree once the pull request is merged.
+checks after every push, folds each fix asked for in review straight into the
+commit it belongs to so the history stays clean, and removes its branch and
+worktree once the pull request is merged.
 
 Each branch adds one line to the repository's `CHANGELOG.md`, labelled with the
 version it releases from `VERSION`, or with the branch name in a repository that

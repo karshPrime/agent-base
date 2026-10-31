@@ -64,9 +64,8 @@ were merged last week.
 One commit, one thing. A commit that does two things is two commits.
 
 Do not pile fix commits on top of your own earlier commits on a branch. Fold the
-correction into the commit it belongs to with a fixup and an autosquash rebase.
-Once the branch has a pull request, fixups wait until review is over; see
-"While it is open".
+correction into the commit it belongs to with a fixup and an autosquash rebase,
+before and after the branch has a pull request.
 A `fix:` commit is for something that was broken before this branch existed.
 
 Format:
@@ -117,8 +116,8 @@ Then sync the fork again, rebase onto the default branch and push the branch to
 the upstream. Rebasing here means conflicts are resolved on a branch nobody else
 is reading.
 
-Before a pull request exists, rebase again only if the default branch has moved
-underneath it, and push with `--force-with-lease`, never `--force`.
+Rebase onto the default branch again only if it has moved underneath the branch.
+Every push that rewrites the branch uses `--force-with-lease`, never `--force`.
 
 ## Pull requests
 
@@ -142,19 +141,13 @@ fix any failure on the branch before reporting back. When coming back to a branc
 with an open pull request, read its reviews and comments first, with
 `gh pr view <n> --comments`.
 
-Review comments, requested changes and failing checks are all answered without
-rewriting history. Each fix is a new `git commit --fixup=<sha>` aimed at the
-commit it corrects, pushed normally. Reviewers see each fix on its own, and
-nothing they have already read moves. Reply to each comment with what changed and
-the fixup's SHA. This is the one time fixups stay as separate commits; the rule
-under Commits is for branches without a pull request.
-
-Once nothing is left, meaning the pull request is approved with every review
-thread resolved, or the user says it is done: sync the fork, fold every fixup into
-its commit with `GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash
-origin/<default branch>`, push with `--force-with-lease`, and watch the checks
-again. Mention that branch protection may ask for a fresh approval after this
-push.
+Review comments, requested changes and failing checks are answered the same way as
+any other correction: fold each fix into the commit it belongs to, with
+`git commit --fixup=<sha>` and then `GIT_SEQUENCE_EDITOR=true git rebase -i
+--autosquash origin/<default branch>`, and push with `--force-with-lease`. No
+fixup commits are ever left on the branch. Reply to each comment with what changed
+and the new SHA of the commit that now carries it, and mention that branch
+protection may ask for a fresh approval after the push.
 
 ## After it merges
 
